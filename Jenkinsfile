@@ -85,7 +85,7 @@ pipeline {
     //     }
     // }
 
-    }
+    // }
     stage("Nexus Artifact Uploader"){
         steps{
           // dir('realworld-cicd-pipeline-project-main/') {
@@ -95,7 +95,7 @@ pipeline {
               nexusUrl: '172.31.6.247:8081',
               groupId: 'webapp',
               version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-              repository: 'maven-snapshots',  //"${NEXUS_REPOSITORY}",
+              repository: 'maven-releases',  //"${NEXUS_REPOSITORY}",
               credentialsId: "${NEXUS_CREDENTIAL_ID}",
               artifacts: [
                   [artifactId: 'webapp',
